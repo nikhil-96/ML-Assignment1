@@ -1,0 +1,13 @@
+setuptools
+pytest
+pygments
+pandas
+numpy
+matplotlib
+jupyter
+openml
+scikit-learn
+ipython
+tqdm
+gdown
+scikit-image
