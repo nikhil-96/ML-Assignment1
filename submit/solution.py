@@ -2,14 +2,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[19]:
+# In[266]:
 
 
 # Fill in your name using the given format
 your_name = "Patni, Nikhil"
 
 
-# In[20]:
+# In[267]:
 
 
 # For use in colab
@@ -27,7 +27,7 @@ if 'google.colab' in str(get_ipython()):
 # 
 # The dataset that we will use contains scanned 28-by-28 pixel images of such handwritten characters. Actually, only 10 of those characters.
 
-# In[27]:
+# In[268]:
 
 
 # imports
@@ -53,7 +53,7 @@ else:
     print("OK. You may continue :)")
 
 
-# In[22]:
+# In[269]:
 
 
 # Download Kuzushiji-MNIST data. Takes a while the first time.
@@ -69,7 +69,7 @@ data_classes = {0:"o", 1: "ki", 2: "su", 3: "tsu", 4: "na", 5: "ha",
                 6: "ma", 7: "ya", 8: "re", 9: "wo"}
 
 
-# In[23]:
+# In[270]:
 
 
 # Plotting helper functions. Don't edit these.
@@ -164,7 +164,7 @@ def plot_coefficients(coef, name):
 # If we plot the characters, we see that there is quite some variation. The same
 # character can be written in a number of different ways.
 
-# In[76]:
+# In[271]:
 
 
 # Gets indices of examples with the given class
@@ -180,7 +180,7 @@ for i in range(10):
 # ### Question 1.1: Cross-validate (1 point)
 # Implement a method `evaluate_LR` that evaluates a Logistic Regression model for a given regularization constant (C) and returns the train and test score of a 5-fold stratified cross-validation using the accuracy metric. Note: we know that Logistic Regression is not the best technique for image data :). We'll use other techniques in future assignments.
 
-# In[28]:
+# In[272]:
 
 
 # Implement
@@ -206,7 +206,7 @@ def evaluate_LR(X, y, C):
 # 
 # Implement a method `plot_curve` that plots the results of `evaluate_LR` on a 25% stratified subsample of the Kuzushiji MNIST dataset for C values ranging from 1e-8 to 1e3 (on a log scale, at least 12 values). Use `random_state=0`. You can use the plotting function `plot_live` defined above (carefully read what it does), and add any helper functions you like. Note:  To be clear, you need to pass only 25% of the data to `evaluate_LR`. Using a 25% subsample won't give you optimal performance, but this is meant to make the assignment more doable.
 
-# In[30]:
+# In[273]:
 
 
 # Implement. Do not change the name or signature of this function.
@@ -236,7 +236,7 @@ def plot_curve(X,y):
 # - 'G': Neither underfitting nor overfitting at both values for C.
 # - 'H': No answer
 
-# In[34]:
+# In[274]:
 
 
 # Fill in the correct answer. Don't change the name of the variable
@@ -251,7 +251,7 @@ q_1_3 = 'C'
 # Note: You may get convergence warnings. If so, just increase the number of optimization iterations (`max_iter`). Especially models with high C values can take longer to converge (can you guess why?). You can also choose to ignore these warnings since they won't affect the results much.  
 # Note 2: Scikit-learn actually uses [a more sophisticated approach](https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_multinomial.html#sphx-glr-auto-examples-linear-model-plot-logistic-multinomial-py) here than simple one-vs-all. It uses the fact that Logistic Regression predicts probabilities, and hence the probabilities of each class are taken into account (in a softmax function). It will still produce one model per class.
 
-# In[179]:
+# In[289]:
 
 
 # Implement. Do not change the name or signature of this function.
@@ -277,7 +277,7 @@ def plot_tsu_coefficients(X,y):
 # ## Question 2.2: Interpretation (1 points)
 # Interpret the results. Which model works best? What is each of the models paying attention to when making predictions? Does that make sense - i.e. did the model learn something useful about the character *tsu*? Compare this to the results of question 1.2 and 1.3: does that help explain the results? Please formulate your answer in the string variable below. Keep your answer within 500 characters.
 
-# In[192]:
+# In[276]:
 
 
 q_2_2 = """
@@ -297,7 +297,7 @@ if len(q_2_2.strip()) > 500:
 # 
 # Finally, plot these examples using the `plot_examples` function, together with the predicted class (character). Create two plots (e.g. by calling `plot_examples` twice): one with 20 examples of 'tsu' characters which are predicted correctly, and a second with 20 examples of 'tsu' characters which are predicted incorrectly by this model. Indicate in the figure `title` which 'tsu' characters are correct and which ones are misclassified.
 
-# In[193]:
+# In[277]:
 
 
 # Implement. Do not change the name or signature of this function.
@@ -342,7 +342,7 @@ def plot_mistakes(X,y):
 # ## Question 3.2: Interpretation (1 point)
 # Interpret the results. Can you explain which kinds of 'tsu' characters are predicted correctly and which ones are not? Compare this with what you observed in question 2.1 and 2.2. What does that tell you about the model? Please formulate your answer in the string variable below. Keep your answer within 500 characters.
 
-# In[195]:
+# In[278]:
 
 
 q_3_2 = """
@@ -368,7 +368,7 @@ if len(q_3_2.strip()) > 500:
 # 
 # Both words consist of two characters as shown below. The first two characters form the first word and the last two form the second.
 
-# In[197]:
+# In[279]:
 
 
 # Uncomment this code if you don't have the mystery_characters.npy file.
@@ -381,7 +381,7 @@ if len(q_3_2.strip()) > 500:
 temple_data = np.load('mystery_characters.npy')
 
 
-# In[198]:
+# In[280]:
 
 
 # plot_examples(temple_data[0:2], None, row_length=2,title="Word 1")
@@ -392,13 +392,7 @@ temple_data = np.load('mystery_characters.npy')
 # 
 # Hint: You can use Google Translate if you don't know Japanese. Enter the words in Google Translate without spaces between the characters. There may be multiple meanings for a word, you can pick the one that fits the sentence best.
 
-# In[209]:
-
-
-data_classes[3]
-
-
-# In[217]:
+# In[281]:
 
 
 # Implement. Do not change the name or signature of this function.
@@ -431,15 +425,86 @@ print("The sentence is : {} looks beautiful over the {}.".format(q_4_word_1,q_4_
 # 
 # This question is deliberative more free-from. You can make your own decisions as long as you adhere to the general method signatures and produce the right output.
 
-# In[17]:
+# In[307]:
+
+
+from skimage.feature import hog
+from skimage import data, exposure
+
+image = X.to_numpy()[21].reshape(28, 28)
+fd, hog_image = hog(image, orientations=9, pixels_per_cell=(4, 4),
+                    cells_per_block=(2, 2), visualize=True)
+
+
+# In[309]:
 
 
 def plot_hog_feature(original_image, hog_image, cell_size = 2):
-  pass
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 8), sharex=True, sharey=True)
+
+    ax1.axis('off')
+    ax1.imshow(original_image, cmap=plt.cm.gray)
+    ax1.set_title('Input image')
+
+    # Rescale histogram for better display
+    hog_image_rescaled = exposure.rescale_intensity(hog_image, in_range=(0, 10))
+
+    ax2.axis('off')
+    ax2.imshow(hog_image_rescaled, cmap=plt.cm.gray)
+    ax2.set_title('Histogram of Oriented Gradients')
+    plt.show()
 
 def plot_hog_features(X,y):
-  pass
+    image = X.to_numpy()[21].reshape(28, 28)
+    fd1, hog_image1 = hog(image, orientations=9, pixels_per_cell=(2, 2),
+                    cells_per_block=(2, 2), visualize=True)
+    
+    fd2, hog_image2 = hog(image, orientations=9, pixels_per_cell=(4, 4),
+                    cells_per_block=(2, 2), visualize=True)
+    
+    fd3, hog_image3 = hog(image, orientations=9, pixels_per_cell=(8, 8),
+                    cells_per_block=(2, 2), visualize=True)
+    
+    fd4, hog_image4 = hog(image, orientations=9, pixels_per_cell=(16, 16),
+                    cells_per_block=(2, 2), visualize=True)
+    
+    fig, (ax1, ax2, ax3, ax4, ax5) = plt.subplots(1, 5, figsize=(16, 16), sharex=True, sharey=True)
 
+    ax1.axis('off')
+    ax1.imshow(image, cmap=plt.cm.gray)
+    ax1.set_title('Input image')
+
+    # Rescale histogram for better display
+    hog_image1_rescaled = exposure.rescale_intensity(hog_image1, in_range=(0, 10))
+
+    ax2.axis('off')
+    ax2.imshow(hog_image1_rescaled, cmap=plt.cm.gray)
+    ax2.set_title('HOG (Cell size=2)')
+    
+    
+    hog_image2_rescaled = exposure.rescale_intensity(hog_image2, in_range=(0, 10))
+
+    ax3.axis('off')
+    ax3.imshow(hog_image2_rescaled, cmap=plt.cm.gray)
+    ax3.set_title('HOG (Cell size=4)')
+    
+    
+    hog_image3_rescaled = exposure.rescale_intensity(hog_image3, in_range=(0, 10))
+
+    ax4.axis('off')
+    ax4.imshow(hog_image3_rescaled, cmap=plt.cm.gray)
+    ax4.set_title('HOG (Cell size=8)')
+    
+    
+    hog_image4_rescaled = exposure.rescale_intensity(hog_image4, in_range=(0, 10))
+
+    ax5.axis('off')
+    ax5.imshow(hog_image4_rescaled, cmap=plt.cm.gray)
+    ax5.set_title('HOG (Cell size=16)')
+    plt.show()
+
+# plot_hog_feature(image, hog_image)
 # plot_hog_features(X,y)
 
 
@@ -447,7 +512,7 @@ def plot_hog_features(X,y):
 # 
 # Compute the HOG features for all images in the dataset and train a Logistic Regression model based on the computed features. Explore different cell sizes, and different levels of regularization, to improve your evaluation accuracy while reducing the number of features for each image. Implement a method `compute_hog_feats` that computes all the HOG features, and a method `evaluate_hog_lr` that evaluates the resulting Logistic Regression model and prints out the test set accuracy. You can use a single holdout in this case. Is this model better than the one you found in question 1.2?
 
-# In[18]:
+# In[284]:
 
 
 def compute_hog_feats(X_original, cell_size):
@@ -461,4 +526,4 @@ def evaluate_hog_lr(X,y):
 # Don't forget to tune the LogisticRegression hyperparameters. This can be done 
 # offline, don't tune them inside evaluate_hog_lr.
 
-last_edit = 'March 05, 2022'
+last_edit = 'March 07, 2022'
