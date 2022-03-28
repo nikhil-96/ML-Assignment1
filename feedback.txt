@@ -1,0 +1,33 @@
+Feedback for Patni, N.:
+
+Q1.1 (code): 1.0/1
+Good
+
+Q1.2 (plot): 1.0/1
+Good
+
+Q1.3 (MC, auto): 0.5/1
+The model is underfitting at c=1e-6.
+
+Q2.1 (plots): 2.0/2
+Good. But be careful that you should remove % from your accuracy in the title. 
+
+Q2.2 (open): 0.25/1
+Not very accurate. The model at c=1e-6 underfits and the coefficient plot catches the most common and simple tsu shape while at c=10 shows very noisy plot.
+
+Q3.1 (plots): 2.0/2
+Well done 
+
+Q3.2 (open): 0.5/1
+You miss the reason why those simple shapes can be predicted correctly while complex ones cannot. The model is underfitting at c=1e-6.
+
+Q4 (japanese words): 1.0/1
+Good
+
+Q5.1 (plots): 1.0/1
+Well done 
+
+Q5.2 (code + score): 0.0/1
+No answer
+
+Total: 9.25 / 10
